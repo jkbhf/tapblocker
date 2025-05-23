@@ -1,4 +1,4 @@
-package com.example.tapblocker
+package com.example.tapblocker.screens
 
 import android.content.Intent
 import android.net.Uri
@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -41,6 +40,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.tapblocker.PermissionUtils
 import com.example.tapblocker.ui.theme.TapBlockerTheme
 
 @Composable
@@ -69,7 +69,7 @@ fun PermissionsScreen(navController: NavController) {
     }
 
     return Scaffold(
-        Modifier.padding(16.dp),
+        Modifier.fillMaxSize(),
         floatingActionButton = {if(overlayGranted && usageStatsGranted) {
             FloatingActionButton(onClick = {
                 navController.navigate("main_route") {
@@ -85,6 +85,7 @@ fun PermissionsScreen(navController: NavController) {
         Column(
             Modifier
                 .padding(innerPadding)
+                .padding(16.dp)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
